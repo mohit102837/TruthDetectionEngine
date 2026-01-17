@@ -1,5 +1,7 @@
 package com.tbde.api.config;
 
+import com.tbde.ai.AiAssistant;
+import com.tbde.ai.MockAiAssistant;
 import com.tbde.engine.TruthBiasDetectionEngine;
 import com.tbde.input.InputNormalizer;
 import com.tbde.preprocess.TextPreprocessor;
@@ -12,6 +14,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ApiConfig {
+    @Bean
+    public AiAssistant aiAssistant() {
+        return new MockAiAssistant();
+    }
+
 
     @Bean
     public TruthBiasDetectionEngine truthBiasDetectionEngine() {
