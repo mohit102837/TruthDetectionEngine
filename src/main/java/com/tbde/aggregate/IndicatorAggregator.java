@@ -11,7 +11,8 @@ public class IndicatorAggregator {
 
     private final List<IndicatorDetector> detectors = List.of(
             new EmotionalLanguageDetector(),
-            new AbsoluteClaimDetector()
+            new AbsoluteClaimDetector(),
+            new EvidencePresenceDetector()
     );
 
 
