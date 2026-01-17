@@ -1,11 +1,23 @@
 package com.tbde.aggregate;
 
+import com.tbde.indicator.*;
+import com.tbde.indicator.detectors.EmotionalLanguageDetector;
 import com.tbde.preprocess.ProcessedText;
-import com.tbde.indicator.IndicatorResult;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class IndicatorAggregator {
+
+    private final List<IndicatorDetector> detectors = List.of(
+            new EmotionalLanguageDetector()
+    );
+
     public List<IndicatorResult> collect(ProcessedText text) {
-        return List.of();
+        List<IndicatorResult> results = new ArrayList<>();
+        for (IndicatorDetector detector : detectors) {
+            results.add(detector.detect(text));
+        }
+        return results;
     }
 }
